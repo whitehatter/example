@@ -1,1 +1,1 @@
-alert( 'XSS on ' + document.domain );
+alert( 'XSS on ' + document.domain + '!' );
