@@ -1,0 +1,22 @@
+<html>
+<head>
+<script type="text/javascript">
+  function doAlert( alert( 'yay' ); );
+
+		function dopost() {
+			console.log( 'posting' );
+			window.opener.postMessage( 'hiback', '*' );
+			//win.postMessage( '{"event":"trekkie:customEvent:v1","payload":{"requestType":"/", "args":{"test":"arg"},"overrideAttributes":{"appName":"whitehatter","shopId":"1216741431"}}}', '*' );
+		}
+		window.addEventListener( 'message', function( event ) {
+			console.log( event.source );
+
+			event.source.postMessage( 'hiback', '*' );
+		});
+    </script>
+</head>
+
+<body>
+<button onclick="dopost()">do potsmessage</button>
+</body>
+</html>
