@@ -28,6 +28,9 @@
 				theWindow.postMessage( 'CLEAR_OT_COOKIES', '*' );
 
 				theWindow.close();
+				
+				const src = Math.round( Math.random( 1, 100000 ) * 100 );
+				window.location.href = `https://hyatt.com?src=${ src }`
 			}
 
 			function openHyattWithSrc() {
