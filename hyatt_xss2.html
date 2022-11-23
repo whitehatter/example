@@ -10,11 +10,11 @@
 			let theWindow;
 
 			function handleOnload() {
-				setTimeout( 3000, () => {
+				setTimeout( () => {
 					document.getElementById( 'openhyatt' ).setAttribute( 'disabled', false );
 
 					openHyatt();
-				} );
+				}, 3000 );
 			      }
 
 			function openHyatt() {
