@@ -16,7 +16,11 @@
 			      }
 
 			function openHyatt() {
-				window.location.href = `https://hyatt.com?src=1`;
+				window.location.href = `https://hyatt.com?src=${ getRandomInt( 10000 ) }`;
+			}
+			
+			function getRandomInt(max) {
+  				return Math.floor(Math.random() * max);
 			}
 			
 			document.getElementById( 'openhyatt' ).addEventListener( 'click', openHyatt );
