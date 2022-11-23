@@ -9,13 +9,13 @@
 		<script type="text/javascript">
 			let theWindow;
 
-			funtion handleOnload() {
-        document.getElementById( 'openhyatt' ).setAttribute( 'disabled', false );
-        
-        openHyatt();
-      }
+			function handleOnload() {
+				document.getElementById( 'openhyatt' ).setAttribute( 'disabled', false );
 
-			async function openHyatt() {
+				openHyatt();
+			      }
+
+			function openHyatt() {
 				window.location.href = `https://hyatt.com?src=1`
 			}
 
