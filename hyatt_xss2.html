@@ -13,13 +13,15 @@
 				setTimeout( () => {
 					document.getElementById( 'openhyatt' ).removeAttribute( 'disabled', false );
 
-					//openHyatt();
-				}, 4000 );
+					openHyatt();
+				}, 3000 );
 			      }
 
 			function openHyatt() {
 				window.location.href = `https://hyatt.com?src=1`;
 			}
+			
+			document.getElementById( 'openhyatt' ).addEventListener( 'click', openHyatt );
 		</script>
     
     
